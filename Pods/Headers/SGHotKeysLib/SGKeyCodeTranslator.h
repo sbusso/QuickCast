@@ -1,0 +1,1 @@
+../../SGHotKeysLib/SGHotKeysLib/SGKeyCodeTranslator.h
