@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <channel>
+      <title>QuickCast Changelog</title>
+      <link>https://s3.amazonaws.com/quickcast-app/mac/appcast.xml</link>
+      <language>en</language>
+         
+				
+		        
+		         
+		         <item>
+		            <title>Version 0.50 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Thu, 18 Jul 2013 10:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.50" length="881646" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 	
+										<p>First beta release!</p>
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.51 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Sun, 21 Jul 2013 10:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.51" length="882606" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 	
+										<p>Tidy up UI</p>
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.52 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Mon, 22 Jul 2013 10:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.52" length="895988" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 	
+										<p>Choose where casts are stored</p>
+										<p>hotkey to stop recording</p>
+										<p>Various bug fixes</p>
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.53 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Mon, 22 Jul 2013 19:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.53" length="895896" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 	
+										<p>Testing updater</p>
+										<p>Choose where casts are stored</p>
+										<p>hotkey to stop recording</p>
+										<p>Various bug fixes</p>
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.54 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Mon, 22 Jul 2013 20:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.54" length="896120" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Choose where casts are stored</p>
+										<p>hotkey to stop recording</p>
+										<p>Various bug fixes</p>
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.55 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Wed, 24 Jul 2013 09:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.55" length="896114" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Clarify required fields</p>
+										
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.56 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Wed, 24 Jul 2013 12:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.56" length="896564" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Close and reopen camera as needed</p>
+										<p>Make it easier to deselect when you have chosen to select only an area of the screen to record</p>
+										
+									]]>
+								</description>
+
+		         </item>
+		          <item>
+		            <title>Version 0.57 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Thu, 25 Jul 2013 10:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.57" length="896411" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Hopefully solve multiple camera issues</p>
+										
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.58 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Fri, 26 Jul 2013 18:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.58" length="897179" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Disable form on upload</p>
+										<p>Allow choosing of audio input</p>
+										
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.59 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Mon, 29 Jul 2013 16:00:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.59" length="1255358" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Updates to UI and flow</p>
+										<p>Added escape key for deselecting area</p>
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.60 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Mon, 29 Jul 2013 16:30:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.60" length="1255369" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Notification Center icon fix</p>
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.62 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Tue, 30 Jul 2013 11:30:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.62" length="1280966" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Second screen countdown fix</p>
+									]]>
+								</description>
+
+		         </item>
+
+		          <item>
+		            <title>Version 0.63 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Tue, 30 Jul 2013 14:30:11 +0000</pubDate>
+		            <enclosure url="https://s3.amazonaws.com/quickcast-app/mac/QuickCast.zip" sparkle:version="0.63" length="1281854" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Macbook air screen countdown fix</p>
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.64 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Tue, 30 Jul 2013 15:00:11 +0000</pubDate>
+		            <enclosure url="https://github.com/petetak/QuickCast/releases/download/0.64/QuickCast.zip" sparkle:version="0.64" length="1281857" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Fix save path</p>
+									]]>
+								</description>
+
+		         </item>
+		         <item>
+		            <title>Version 0.65 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Tue, 30 Jul 2013 16:00:11 +0000</pubDate>
+		            <enclosure url="https://github.com/petetak/QuickCast/releases/download/0.65/QuickCast.zip" sparkle:version="0.65" length="1281857" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Move appcast to github</p>
+									]]>
+								</description>
+
+		         </item>
+		         
+		         
+
+
+   </channel>
+</rss>

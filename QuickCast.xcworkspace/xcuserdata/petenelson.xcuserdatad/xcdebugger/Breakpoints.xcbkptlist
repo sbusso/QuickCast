@@ -78,7 +78,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "741"
          endingLineNumber = "741"
-         landmarkName = "-setupFolder"
+         landmarkName = "-getCasts"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -91,7 +91,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "974"
          endingLineNumber = "974"
-         landmarkName = "-updateSelectedDisplay:"
+         landmarkName = "-startCountdown"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -273,7 +273,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1307"
          endingLineNumber = "1307"
-         landmarkName = "-complete:filesize:length:width:height:"
+         landmarkName = "-markUploadCompleted"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -325,7 +325,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "568"
          endingLineNumber = "568"
-         landmarkName = "-setDisplayAndCropRect"
+         landmarkName = "-setFullScreen"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -351,7 +351,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "968"
          endingLineNumber = "968"
-         landmarkName = "-updateSelectedDisplay:"
+         landmarkName = "-startCountdown"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -585,7 +585,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "932"
          endingLineNumber = "932"
-         landmarkName = "-signInClick:"
+         landmarkName = "-quitClick:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -832,7 +832,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1010"
          endingLineNumber = "1010"
-         landmarkName = "-startCountdown"
+         landmarkName = "-secondCount"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
