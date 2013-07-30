@@ -47,7 +47,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="1005">
-				<int key="NSWindowStyleMask">15</int>
+				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{337, 199}, {800, 600}}</string>
 				<int key="NSWTFlags">544735232</int>
@@ -82,7 +82,7 @@
 															<int key="NSvFlags">2322</int>
 															<string key="NSFrameSize">{374, 220}</string>
 															<reference key="NSSuperview" ref="172650522"/>
-															<reference key="NSNextKeyView" ref="551873666"/>
+															<reference key="NSNextKeyView" ref="276427901"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<string key="NSHuggingPriority">{603, 608}</string>
 															<object class="NSTextContainer" key="NSTextContainer" id="147743148">
@@ -208,7 +208,7 @@
 											</array>
 											<string key="NSFrame">{{4, 12}, {374, 220}}</string>
 											<reference key="NSSuperview" ref="157906932"/>
-											<reference key="NSNextKeyView" ref="276427901"/>
+											<reference key="NSNextKeyView" ref="172650522"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<string key="NSAntiCompressionPriority">{237, 196}</string>
 											<int key="NSsFlags">133648</int>

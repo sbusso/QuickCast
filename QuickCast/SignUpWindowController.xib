@@ -43,7 +43,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="1005">
-				<int key="NSWindowStyleMask">15</int>
+				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 240}, {350, 504}}</string>
 				<int key="NSWTFlags">544735232</int>
@@ -664,13 +664,13 @@
 								<bool key="NSEditable">YES</bool>
 							</object>
 						</array>
-						<string key="NSFrame">{{1, 1}, {560, 42}}</string>
+						<string key="NSFrame">{{1, 1}, {566, 42}}</string>
 						<reference key="NSSuperview" ref="696805274"/>
 						<reference key="NSNextKeyView" ref="964450009"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{562, 58}</string>
+				<string key="NSFrameSize">{568, 58}</string>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSOffsets">{0, 0}</string>
 				<object class="NSTextFieldCell" key="NSTitleCell">
