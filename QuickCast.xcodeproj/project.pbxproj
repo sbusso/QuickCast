@@ -226,16 +226,17 @@
 		E4B5F92917973295003A452E /* SignInWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B5F92717973294003A452E /* SignInWindowController.xib */; };
 		E4B5F92C17993B01003A452E /* ScreenDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F92B17993B00003A452E /* ScreenDetails.m */; };
 		E4D9793217A6BCF300379D2B /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D9793117A6BCF300379D2B /* Growl.framework */; };
-		E4D9793417A6BD7100379D2B /* growl_licence.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4D9793317A6BD7100379D2B /* growl_licence.txt */; };
 		E4D9793917A6BEBD00379D2B /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E4D9793817A6BEBD00379D2B /* Growl Registration Ticket.growlRegDict */; };
 		E4D9793A17A6BF3D00379D2B /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E4D9793117A6BCF300379D2B /* Growl.framework */; };
+		E4E4566617A8210100999CA6 /* growl.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E4566217A8210100999CA6 /* growl.txt */; };
+		E4E4566717A8210100999CA6 /* LaunchAtLogin.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E4566317A8210100999CA6 /* LaunchAtLogin.txt */; };
+		E4E4566817A8210100999CA6 /* MMMarkdown.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E4566417A8210100999CA6 /* MMMarkdown.txt */; };
+		E4E4566917A8210100999CA6 /* Sparkle.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E4566517A8210100999CA6 /* Sparkle.txt */; };
 		E4EB419317A6761D004E5AD9 /* DecisionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EB419117A6761D004E5AD9 /* DecisionWindowController.m */; };
 		E4EB419417A6761D004E5AD9 /* DecisionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4EB419217A6761D004E5AD9 /* DecisionWindowController.xib */; };
 		E4FADB04179B275900A24EBC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FADB03179B275900A24EBC /* Sparkle.framework */; };
 		E4FADB06179B27B700A24EBC /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E4FADB03179B275900A24EBC /* Sparkle.framework */; };
 		E4FADB0A179BEA7400A24EBC /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FADB09179BEA7400A24EBC /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E4FADB0C179BEB0200A24EBC /* LaunchAtLogin_licence.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4FADB0B179BEB0200A24EBC /* LaunchAtLogin_licence.txt */; };
-		E4FADB0F179BEB4E00A24EBC /* Sparkle_licence.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4FADB0E179BEB4E00A24EBC /* Sparkle_licence.txt */; };
 		E4FADB11179D357400A24EBC /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FADB10179D357400A24EBC /* Carbon.framework */; };
 		E5232755179C508700167172 /* flip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5232753179C508700167172 /* flip@2x.png */; };
 		E5232756179C508700167172 /* flip.png in Resources */ = {isa = PBXBuildFile; fileRef = E5232754179C508700167172 /* flip.png */; };
@@ -1882,16 +1883,17 @@
 		E4B5F92A17993B00003A452E /* ScreenDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenDetails.h; sourceTree = "<group>"; };
 		E4B5F92B17993B00003A452E /* ScreenDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenDetails.m; sourceTree = "<group>"; };
 		E4D9793117A6BCF300379D2B /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		E4D9793317A6BD7100379D2B /* growl_licence.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = growl_licence.txt; sourceTree = "<group>"; };
 		E4D9793817A6BEBD00379D2B /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		E4E4566217A8210100999CA6 /* growl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = growl.txt; sourceTree = "<group>"; };
+		E4E4566317A8210100999CA6 /* LaunchAtLogin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LaunchAtLogin.txt; sourceTree = "<group>"; };
+		E4E4566417A8210100999CA6 /* MMMarkdown.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MMMarkdown.txt; sourceTree = "<group>"; };
+		E4E4566517A8210100999CA6 /* Sparkle.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sparkle.txt; sourceTree = "<group>"; };
 		E4EB419017A6761D004E5AD9 /* DecisionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionWindowController.h; sourceTree = "<group>"; };
 		E4EB419117A6761D004E5AD9 /* DecisionWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionWindowController.m; sourceTree = "<group>"; };
 		E4EB419217A6761D004E5AD9 /* DecisionWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecisionWindowController.xib; sourceTree = "<group>"; };
 		E4FADB03179B275900A24EBC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		E4FADB08179BEA7400A24EBC /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
 		E4FADB09179BEA7400A24EBC /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
-		E4FADB0B179BEB0200A24EBC /* LaunchAtLogin_licence.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LaunchAtLogin_licence.txt; sourceTree = "<group>"; };
-		E4FADB0E179BEB4E00A24EBC /* Sparkle_licence.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sparkle_licence.txt; sourceTree = "<group>"; };
 		E4FADB10179D357400A24EBC /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		E50A0F6C179ADC090066E085 /* QuickCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = QuickCast.entitlements; sourceTree = "<group>"; };
 		E5232753179C508700167172 /* flip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flip@2x.png"; sourceTree = "<group>"; };
@@ -1932,9 +1934,9 @@
 		E4B5F1EC1795E54F003A452E = {
 			isa = PBXGroup;
 			children = (
+				E4E4566117A8210100999CA6 /* licences */,
 				E481DCBE17A812F60080BCF6 /* Licence */,
 				E4FADB12179D358100A24EBC /* Frameworks */,
-				E4FADB0D179BEB3200A24EBC /* Licences */,
 				E4FADB07179BEA5A00A24EBC /* LaunchAtLogin */,
 				E5EF08BF179BB5EE005F4F4F /* quickcast.iconset */,
 				E450139F1799868A00D36DDF /* libMMMarkdown-Mac.a */,
@@ -3749,6 +3751,17 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		E4E4566117A8210100999CA6 /* licences */ = {
+			isa = PBXGroup;
+			children = (
+				E4E4566217A8210100999CA6 /* growl.txt */,
+				E4E4566317A8210100999CA6 /* LaunchAtLogin.txt */,
+				E4E4566417A8210100999CA6 /* MMMarkdown.txt */,
+				E4E4566517A8210100999CA6 /* Sparkle.txt */,
+			);
+			path = licences;
+			sourceTree = "<group>";
+		};
 		E4FADB07179BEA5A00A24EBC /* LaunchAtLogin */ = {
 			isa = PBXGroup;
 			children = (
@@ -3756,16 +3769,6 @@
 				E4FADB09179BEA7400A24EBC /* LaunchAtLoginController.m */,
 			);
 			name = LaunchAtLogin;
-			sourceTree = "<group>";
-		};
-		E4FADB0D179BEB3200A24EBC /* Licences */ = {
-			isa = PBXGroup;
-			children = (
-				E4FADB0B179BEB0200A24EBC /* LaunchAtLogin_licence.txt */,
-				E4FADB0E179BEB4E00A24EBC /* Sparkle_licence.txt */,
-				E4D9793317A6BD7100379D2B /* growl_licence.txt */,
-			);
-			name = Licences;
 			sourceTree = "<group>";
 		};
 		E4FADB12179D358100A24EBC /* Frameworks */ = {
@@ -3869,14 +3872,15 @@
 				E45013C0179A822200D36DDF /* grabber.png in Resources */,
 				E45013C1179A822200D36DDF /* grabber@2x.png in Resources */,
 				E5EF08C0179BB5EE005F4F4F /* quickcast.iconset in Resources */,
-				E4FADB0C179BEB0200A24EBC /* LaunchAtLogin_licence.txt in Resources */,
-				E4FADB0F179BEB4E00A24EBC /* Sparkle_licence.txt in Resources */,
 				E5232755179C508700167172 /* flip@2x.png in Resources */,
 				E5232756179C508700167172 /* flip.png in Resources */,
 				E4EB419417A6761D004E5AD9 /* DecisionWindowController.xib in Resources */,
-				E4D9793417A6BD7100379D2B /* growl_licence.txt in Resources */,
 				E4D9793917A6BEBD00379D2B /* Growl Registration Ticket.growlRegDict in Resources */,
 				E481DCBF17A812F60080BCF6 /* Licence in Resources */,
+				E4E4566617A8210100999CA6 /* growl.txt in Resources */,
+				E4E4566717A8210100999CA6 /* LaunchAtLogin.txt in Resources */,
+				E4E4566817A8210100999CA6 /* MMMarkdown.txt in Resources */,
+				E4E4566917A8210100999CA6 /* Sparkle.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

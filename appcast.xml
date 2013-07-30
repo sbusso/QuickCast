@@ -218,6 +218,19 @@
 								</description>
 
 		         </item>
+		         <item>
+		            <title>Version 0.66 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Tue, 30 Jul 2013 16:30:11 +0000</pubDate>
+		            <enclosure url="https://github.com/petetak/QuickCast/releases/download/0.66/QuickCast.zip" sparkle:version="0.66" length="1282392" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Prevent opening multiple times</p>
+									]]>
+								</description>
+
+		         </item>
 		         
 		         
 

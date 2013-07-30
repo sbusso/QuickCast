@@ -843,7 +843,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     }
     else{
         
-        if(![prepareWindowController.window isMainWindow]){
+        if(![prepareWindowController.window isVisible]){
             //ensure other windows are shut ready to record again
             if(decisionWindowController)
                 [decisionWindowController.window orderOut:nil];
