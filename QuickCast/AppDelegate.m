@@ -629,6 +629,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     [_resizeView setHidden:NO];
     
     [captureMovieFileOutput stopRecording];
+    
     [_recordItem setTitle:@"Record"];
     [session stopRunning];
     
@@ -827,8 +828,10 @@ NSString *const MoviePath = @"Movies/QuickCast";
 #pragma mark menu clicks
 
 - (IBAction)previewCloseClick:(id)sender {
+    
     [_previewPanel orderOut:nil];
     [session stopRunning];
+    
     if(prepareWindowController)
         [prepareWindowController.cameraOnButton setState:NSOffState];
 }
@@ -840,45 +843,47 @@ NSString *const MoviePath = @"Movies/QuickCast";
     }
     else{
         
-        //ensure other windows are shut ready to record again
-        if(decisionWindowController)
-            [decisionWindowController.window orderOut:nil];
-        
-        if(finishWindowController)
-            [decisionWindowController.window orderOut:nil];
-        
-        BOOL success = [self createCaptureSession];
-        
-        latestUrl = nil;
-        //[self addCaptureVideoPreview];
-        
-        /* Start the capture session running. */
-        [self.captureSession startRunning];
-        
-        NSString *quickcast = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"];
-        
-        // Delete any existing movie file first
-        if ([[NSFileManager defaultManager] fileExistsAtPath:quickcast]){
-            NSError *err;
-            if (![[NSFileManager defaultManager] removeItemAtPath:quickcast error:&err]){
-                NSLog(@"Error deleting existing movie %@",[err localizedDescription]);
+        if(![prepareWindowController.window isMainWindow]){
+            //ensure other windows are shut ready to record again
+            if(decisionWindowController)
+                [decisionWindowController.window orderOut:nil];
+            
+            if(finishWindowController)
+                [decisionWindowController.window orderOut:nil];
+            
+            BOOL success = [self createCaptureSession];
+            
+            latestUrl = nil;
+            //[self addCaptureVideoPreview];
+            
+            /* Start the capture session running. */
+            [self.captureSession startRunning];
+            
+            NSString *quickcast = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"];
+            
+            // Delete any existing movie file first
+            if ([[NSFileManager defaultManager] fileExistsAtPath:quickcast]){
+                NSError *err;
+                if (![[NSFileManager defaultManager] removeItemAtPath:quickcast error:&err]){
+                    NSLog(@"Error deleting existing movie %@",[err localizedDescription]);
+                }
             }
+            
+            prepareWindowController = [[PrepareWindowController alloc] initWithWindowNibName:@"PrepareWindowController"];
+            [prepareWindowController.window setLevel: NSScreenSaverWindowLevel + 2];
+            [prepareWindowController.window makeKeyAndOrderFront:nil];
+            ScreenDetails *screenDetails = [Utilities getDisplayByName:prepareWindowController.availableScreens.selectedItem.title];
+            [self setupCountdownWindow:screenDetails.screen];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                
+                session = [[AVCaptureSession alloc] init];
+                // Set the session preset
+                [session setSessionPreset:AVCaptureSessionPreset640x480];
+                
+                [self setupVideoPreview];
+                
+            });
         }
-        
-        prepareWindowController = [[PrepareWindowController alloc] initWithWindowNibName:@"PrepareWindowController"];
-        [prepareWindowController.window setLevel: NSScreenSaverWindowLevel + 2];
-        [prepareWindowController.window makeKeyAndOrderFront:nil];
-        ScreenDetails *screenDetails = [Utilities getDisplayByName:prepareWindowController.availableScreens.selectedItem.title];
-        [self setupCountdownWindow:screenDetails.screen];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            
-            session = [[AVCaptureSession alloc] init];
-            // Set the session preset
-            [session setSessionPreset:AVCaptureSessionPreset640x480];
-            
-            [self setupVideoPreview];
-            
-        });
     }
     
 }

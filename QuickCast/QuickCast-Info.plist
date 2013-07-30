@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.64</string>
+	<string>0.65</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.64</string>
+	<string>0.65</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>LSUIElement</key>
@@ -37,6 +37,6 @@
 	<key>SUEnableAutomaticChecks</key>
 	<string>YES</string>
 	<key>SUFeedURL</key>
-	<string>https://s3.amazonaws.com/quickcast-app/mac/appcast.xml</string>
+	<string>https://raw.github.com/petetak/QuickCast/master/appcast.xml</string>
 </dict>
 </plist>

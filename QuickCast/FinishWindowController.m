@@ -11,7 +11,6 @@
 #import "Exporter.h"
 #import "MMMarkdown.h"
 #import <WebKit/WebKit.h>
-#import "NSAttributedString_Hyperlink.h"
 
 @interface FinishWindowController ()
 
