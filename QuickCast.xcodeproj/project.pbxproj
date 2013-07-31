@@ -232,6 +232,8 @@
 		E4E4566717A8210100999CA6 /* LaunchAtLogin.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E4566317A8210100999CA6 /* LaunchAtLogin.txt */; };
 		E4E4566817A8210100999CA6 /* MMMarkdown.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E4566417A8210100999CA6 /* MMMarkdown.txt */; };
 		E4E4566917A8210100999CA6 /* Sparkle.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E4566517A8210100999CA6 /* Sparkle.txt */; };
+		E4E4566B17A86BD700999CA6 /* ffmpeg in Resources */ = {isa = PBXBuildFile; fileRef = E4E4566A17A86BD700999CA6 /* ffmpeg */; };
+		E4E4566E17A86C6A00999CA6 /* FFMPEGEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E4566D17A86C6A00999CA6 /* FFMPEGEngine.m */; };
 		E4EB419317A6761D004E5AD9 /* DecisionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EB419117A6761D004E5AD9 /* DecisionWindowController.m */; };
 		E4EB419417A6761D004E5AD9 /* DecisionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4EB419217A6761D004E5AD9 /* DecisionWindowController.xib */; };
 		E4FADB04179B275900A24EBC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FADB03179B275900A24EBC /* Sparkle.framework */; };
@@ -1888,6 +1890,9 @@
 		E4E4566317A8210100999CA6 /* LaunchAtLogin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LaunchAtLogin.txt; sourceTree = "<group>"; };
 		E4E4566417A8210100999CA6 /* MMMarkdown.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MMMarkdown.txt; sourceTree = "<group>"; };
 		E4E4566517A8210100999CA6 /* Sparkle.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sparkle.txt; sourceTree = "<group>"; };
+		E4E4566A17A86BD700999CA6 /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ffmpeg; sourceTree = "<group>"; };
+		E4E4566C17A86C6A00999CA6 /* FFMPEGEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFMPEGEngine.h; sourceTree = "<group>"; };
+		E4E4566D17A86C6A00999CA6 /* FFMPEGEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFMPEGEngine.m; sourceTree = "<group>"; };
 		E4EB419017A6761D004E5AD9 /* DecisionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionWindowController.h; sourceTree = "<group>"; };
 		E4EB419117A6761D004E5AD9 /* DecisionWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionWindowController.m; sourceTree = "<group>"; };
 		E4EB419217A6761D004E5AD9 /* DecisionWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecisionWindowController.xib; sourceTree = "<group>"; };
@@ -1934,6 +1939,7 @@
 		E4B5F1EC1795E54F003A452E = {
 			isa = PBXGroup;
 			children = (
+				E4E4566A17A86BD700999CA6 /* ffmpeg */,
 				E4E4566117A8210100999CA6 /* licences */,
 				E481DCBE17A812F60080BCF6 /* Licence */,
 				E4FADB12179D358100A24EBC /* Frameworks */,
@@ -2023,6 +2029,8 @@
 				E4EB419017A6761D004E5AD9 /* DecisionWindowController.h */,
 				E4EB419117A6761D004E5AD9 /* DecisionWindowController.m */,
 				E4EB419217A6761D004E5AD9 /* DecisionWindowController.xib */,
+				E4E4566C17A86C6A00999CA6 /* FFMPEGEngine.h */,
+				E4E4566D17A86C6A00999CA6 /* FFMPEGEngine.m */,
 			);
 			path = QuickCast;
 			sourceTree = "<group>";
@@ -3881,6 +3889,7 @@
 				E4E4566717A8210100999CA6 /* LaunchAtLogin.txt in Resources */,
 				E4E4566817A8210100999CA6 /* MMMarkdown.txt in Resources */,
 				E4E4566917A8210100999CA6 /* Sparkle.txt in Resources */,
+				E4E4566B17A86BD700999CA6 /* ffmpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4102,6 +4111,7 @@
 				E4B5F92C17993B01003A452E /* ScreenDetails.m in Sources */,
 				E4FADB0A179BEA7400A24EBC /* LaunchAtLoginController.m in Sources */,
 				E4EB419317A6761D004E5AD9 /* DecisionWindowController.m in Sources */,
+				E4E4566E17A86C6A00999CA6 /* FFMPEGEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

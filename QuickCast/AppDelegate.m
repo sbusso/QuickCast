@@ -23,6 +23,7 @@
 #import <Sparkle/Sparkle.h>
 #import <Growl/Growl.h>
 #import <Reachability.h>
+#import "FFMPEGEngine.h"
 
 @interface AVCaptureInput (ConvenienceMethodsCategory)
 
@@ -343,7 +344,19 @@ NSString *const MoviePath = @"Movies/QuickCast";
     }
     
     [decisionWindowController completedProcessing:NO];
-    [self resizeVideo:[NSHomeDirectory() stringByAppendingPathComponent:MoviePath]];
+    //[self resizeVideo:[NSHomeDirectory() stringByAppendingPathComponent:MoviePath]];
+    
+    NSString *input = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"];
+    NSString *output = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast-compressed.mov"];
+    // Delete any existing movie file first
+    if ([[NSFileManager defaultManager] fileExistsAtPath:output]){
+        
+        if (![[NSFileManager defaultManager] removeItemAtPath:output error:&error]){
+            NSLog(@"Error deleting compressed movie %@",[error localizedDescription]);
+        }
+    }
+    FFMPEGEngine *engine = [[FFMPEGEngine alloc] init];
+    NSString *err = [engine resizeVideo:input output:output width:movieSize.width height:movieSize.height];
     
     [self.captureSession stopRunning];
     
@@ -1378,6 +1391,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     CGSize naturalSize;
     naturalSize = videoAssetTrack.naturalSize;
     NSSize smallerSize = movieSize;
+    NSLog(@"the width is %f and the height is %f",smallerSize.width, smallerSize.height);
     
     //NSSize testSize = retina ? [Utilities resize:NSMakeSize(naturalSize.width/2, naturalSize.height/2) withMax:1280]  : [Utilities resize:NSMakeSize(naturalSize.width, naturalSize.height) withMax:1280];
     
