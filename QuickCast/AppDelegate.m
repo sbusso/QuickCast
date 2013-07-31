@@ -268,8 +268,41 @@ NSString *const MoviePath = @"Movies/QuickCast";
     }
 	
 	/* Register for notifications of errors during the capture session so we can display an alert. */
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(captureSessionRuntimeErrorDidOccur:) name:AVCaptureSessionRuntimeErrorNotification object:self.captureSession];
+	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(captureSessionRuntimeErrorDidOccur:) name:AVCaptureSessionRuntimeErrorNotification object:self.captureSession];
     
+    id runtimeErrorObserver = [[NSNotificationCenter defaultCenter] addObserverForName:AVCaptureSessionRuntimeErrorNotification
+                                                              object:self.captureSession
+                                                               queue:[NSOperationQueue mainQueue]
+                                                          usingBlock:^(NSNotification *note) {
+                                                              dispatch_async(dispatch_get_main_queue(), ^(void) {
+                                                                  NSLog(@"error at runtime %@",[[note userInfo] objectForKey:AVCaptureSessionErrorKey]);
+                                                                  
+                                                              });
+                                                          }];
+    id didStartRunningObserver = [[NSNotificationCenter defaultCenter] addObserverForName:AVCaptureSessionDidStartRunningNotification
+                                                                 object:self.captureSession
+                                                                  queue:[NSOperationQueue mainQueue]
+                                                             usingBlock:^(NSNotification *note) {
+                                                                 NSLog(@"did start running");
+                                                             }];
+    id didStopRunningObserver = [[NSNotificationCenter defaultCenter] addObserverForName:AVCaptureSessionDidStopRunningNotification
+                                                                object:self.captureSession
+                                                                 queue:[NSOperationQueue mainQueue]
+                                                            usingBlock:^(NSNotification *note) {
+                                                                NSLog(@"did stop running");
+                                                            }];
+    id deviceWasConnectedObserver = [[NSNotificationCenter defaultCenter] addObserverForName:AVCaptureDeviceWasConnectedNotification
+                                                                    object:nil
+                                                                     queue:[NSOperationQueue mainQueue]
+                                                                usingBlock:^(NSNotification *note) {
+                                                                    NSLog(@"device was connected");
+                                                                }];
+    id deviceWasDisconnectedObserver = [[NSNotificationCenter defaultCenter] addObserverForName:AVCaptureDeviceWasDisconnectedNotification
+                                                                       object:nil
+                                                                        queue:[NSOperationQueue mainQueue]
+                                                                   usingBlock:^(NSNotification *note) {
+                                                                       NSLog(@"device was disconnected");
+                                                                   }];
     return YES;
 }
 
@@ -480,7 +513,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
                 
                 session = [[AVCaptureSession alloc] init];
                 // Set the session preset
-                [session setSessionPreset:AVCaptureSessionPreset640x480];
+                [session setSessionPreset:AVCaptureSessionPreset320x240];
                 
                 [self setupVideoPreview];
                 
@@ -645,7 +678,11 @@ NSString *const MoviePath = @"Movies/QuickCast";
 	
     // last minute set it
     ScreenDetails *sd = [Utilities getDisplayByName:selectedDisplayName];
-    [self addDisplayInputToCaptureSession:sd.screenId cropRect:NSRectToCGRect(selectedCrop)];
+    if(selectedCrop.size.width == 0){ //if nszerorect then instead use the screen frame
+        [self addDisplayInputToCaptureSession:sd.screenId cropRect:NSRectToCGRect(sd.screen.frame)];
+    }
+    else
+        [self addDisplayInputToCaptureSession:sd.screenId cropRect:NSRectToCGRect(selectedCrop)];
     
     /* Starts recording to a given URL. */
     [captureMovieFileOutput startRecordingToOutputFileURL:[NSURL fileURLWithPath:quickcast] recordingDelegate:self];
