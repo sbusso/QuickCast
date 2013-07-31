@@ -183,7 +183,7 @@
 											<string key="NSFrame">{{16, 71}, {216, 26}}</string>
 											<reference key="NSSuperview" ref="919413245"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="280533539"/>
+											<reference key="NSNextKeyView" ref="184465114"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSPopUpButtonCell" key="NSCell" id="770042312">
@@ -219,6 +219,7 @@
 											<string key="NSFrame">{{18, 43}, {211, 18}}</string>
 											<reference key="NSSuperview" ref="919413245"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView" ref="280533539"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSLevelIndicatorCell" key="NSCell" id="488551228">
@@ -226,10 +227,10 @@
 												<int key="NSCellFlags2">0</int>
 												<string key="NSCellIdentifier">_NS:9</string>
 												<reference key="NSControlView" ref="184465114"/>
-												<double key="NSValue">7</double>
+												<double key="NSMinValue">2</double>
 												<double key="NSMaxValue">7</double>
-												<double key="NSWarningValue">5</double>
-												<double key="NSCriticalValue">5</double>
+												<double key="NSWarningValue">4</double>
+												<double key="NSCriticalValue">6</double>
 												<int key="NSIndicatorStyle">2</int>
 											</object>
 											<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -317,6 +318,7 @@
 							<string key="NSFrame">{{31, 13}, {220, 15}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="190909843">
@@ -557,6 +559,14 @@
 						<reference key="destination" ref="364354210"/>
 					</object>
 					<int key="connectionID">449</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">audioLevelIndicator</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="184465114"/>
+					</object>
+					<int key="connectionID">511</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1631,7 +1641,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">510</int>
+			<int key="maxID">511</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1686,6 +1696,7 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="audioLevelIndicator">NSLevelIndicator</string>
 						<string key="availableAudioDevices">NSPopUpButton</string>
 						<string key="availableScreens">NSPopUpButton</string>
 						<string key="cameraOnButton">NSButton</string>
@@ -1694,6 +1705,10 @@
 						<string key="startCountdownButton">NSButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="audioLevelIndicator">
+							<string key="name">audioLevelIndicator</string>
+							<string key="candidateClassName">NSLevelIndicator</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="availableAudioDevices">
 							<string key="name">availableAudioDevices</string>
 							<string key="candidateClassName">NSPopUpButton</string>

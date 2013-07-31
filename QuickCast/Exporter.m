@@ -82,16 +82,16 @@
         
         filename = [NSString stringWithFormat:@"quickcast-%@.%@", timeString, @"mp4"];
         
-        NSString *quickcast = [NSHomeDirectory() stringByAppendingPathComponent:@"Movies/quickcast"];
+        NSString *quickcast = [NSHomeDirectory() stringByAppendingPathComponent:MoviePath];
         
-        tempUrl = [NSURL fileURLWithPath:[quickcast stringByAppendingPathComponent:@"quickcast-compressed.mov"]];
+        tempUrl = [NSURL fileURLWithPath:[quickcast stringByAppendingPathComponent:@"quickcast-compressed.mp4"]];
         
         videoAsset = [AVAsset assetWithURL:tempUrl];
         //CMTime totalTime = CMTimeMakeWithSeconds(CMTimeGetSeconds(videoAsset.duration), videoAsset.duration.timescale);
         NSString *length = [NSString stringWithFormat:@"%f",CMTimeGetSeconds(videoAsset.duration)];
         
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-        NSString *quickcastPath = [prefs objectForKey:@"quickcastSavePath"];
+        NSString *quickcastPath = [prefs objectForKey:@"quickcastNewSavePath"];
         
         if(quickcastPath.length > 0){
             

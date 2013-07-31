@@ -245,6 +245,20 @@
 								</description>
 
 		         </item>
+		         <item>
+		            <title>Version 0.68 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Wed, 31 Jul 2013 10:40:11 +0000</pubDate>
+		            <enclosure url="https://github.com/petetak/QuickCast/releases/download/0.68/QuickCast.zip" sparkle:version="0.68" length="8805814" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Add ffmpeg</p>
+										<p>Add audio level</p>
+									]]>
+								</description>
+
+		         </item>
 		         
 		         
 

@@ -21,6 +21,7 @@
 
 - (void)updateImage:image;
 - (void)completedProcessing:(BOOL)finished;
+- (void)compress;
 
 
 @end

@@ -23,10 +23,7 @@ extern NSString *kGlobalHotKey;
     BOOL reachable;
     
     NSString *countdownNumberString;
-    
-    IBOutlet NSLevelIndicator	*audioLevelMeter;
-    NSTimer						*audioLevelTimer;
-    
+    AVCaptureAudioDataOutput *audioDataOutput;
 }
 
 #pragma mark - Hotkeys
@@ -54,7 +51,7 @@ FOUNDATION_EXPORT NSString *const MoviePath;
 
 - (IBAction)startRecording:(id)sender;
 
-
+@property (strong) AVCaptureAudioDataOutput *audioDataOutput;
 @property (strong) AVCaptureSession *captureSession;
 @property (strong) AVCaptureScreenInput *captureScreenInput;
 @property (strong) AVCaptureDeviceInput *captureAudioInput;

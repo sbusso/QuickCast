@@ -8,6 +8,8 @@
 
 @interface PrepareWindowController : NSWindowController {
     id eventMonitor;
+    
+    NSTimer	*audioLevelTimer;
 }
 
 - (IBAction)recordSoundClick:(id)sender;
@@ -20,6 +22,7 @@
 
 
 
+@property (strong) IBOutlet NSLevelIndicator *audioLevelIndicator;
 
 @property (strong) IBOutlet NSPopUpButton *availableScreens;
 @property (strong) IBOutlet NSButton *startCountdownButton;

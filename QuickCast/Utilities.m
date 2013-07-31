@@ -73,6 +73,13 @@
     return audioCaptureDevices;
 }
 
++ (NSString *)defaultAudioInputName{
+    
+    AVCaptureDevice *audioDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+    
+    return audioDevice.localizedName;
+}
+
 + (NSMutableArray *)getDisplays{
     
     NSMutableArray *displays = [NSMutableArray array];
@@ -101,7 +108,10 @@
     
     for(NSScreen *screen in [NSScreen screens])
     {
-        return [Utilities getScreenDetails:screen];
+        ScreenDetails *sd = [Utilities getScreenDetails:screen];
+        if(sd.screenId == CGMainDisplayID()){
+            return sd;
+        }
     }
     
     return nil;

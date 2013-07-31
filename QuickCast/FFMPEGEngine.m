@@ -17,13 +17,16 @@
     [task setLaunchPath: ffmpegPath];
         
     NSMutableArray *arguments = [NSMutableArray array];
-        
+    
+    // running: ./ffmpeg -i quickcast.mov -c:v libx264 -preset veryfast -crf 22 output.mp4
     [arguments addObject:@"-i"];
     [arguments addObject:inputPath];
-    [arguments addObject:@"-vf"];
-    [arguments addObject:@"-sameq"];
-    [arguments addObject:[NSString stringWithFormat:@"scale=%f:%f",width,height]];
-    
+    [arguments addObject:@"-c:v"];
+    [arguments addObject:@"libx264"];
+    [arguments addObject:@"-preset"];
+    [arguments addObject:@"veryfast"];
+    [arguments addObject:@"-crf"];
+    [arguments addObject:@"22"];
     
     [arguments addObject:outputPath];
         
@@ -56,7 +59,12 @@
     
     NSString *errorString = [[NSString alloc] initWithData: errorData encoding: NSUTF8StringEncoding];
     
+    if(string.length > 0){
+        NSLog(@"-------------------string-------------------%@",string);
+    }
     if(errorString.length > 0){
+         NSLog(@"-------------------errorstring-------------------%@",errorString);
+        NSLog(@"-------------------enderrorstring-------------------");
         return errorString;
     }
     

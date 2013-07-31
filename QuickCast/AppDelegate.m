@@ -4,7 +4,6 @@
 //  Copyright (c) 2013 Pete Nelson, Neil Kinnish, Dom Murphy
 //
 
-#import <QTKit/QTKit.h>
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 #import "PrepareWindowController.h"
@@ -99,6 +98,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
 @synthesize hotKey;
 @synthesize reachable;
 @synthesize countdownNumberString;
+@synthesize audioDataOutput;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
     
@@ -180,9 +180,6 @@ NSString *const MoviePath = @"Movies/QuickCast";
         });
     };
     
-    // setup audio level timer
-    audioLevelTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateAudioLevels:) userInfo:nil repeats:YES];
-    
     // Start the notifier, which will cause the reachability object to retain itself!
     [reach startNotifier];
 }
@@ -212,21 +209,6 @@ NSString *const MoviePath = @"Movies/QuickCast";
     selectedDisplayName = main.screenName;
     movieSize = main.screen.frame.size;
     
-    // Alternaties for selecting display
-    
-    // 1
-    //CGDirectDisplayID displayId = kCGDirectMainDisplay;
-    //AVCaptureScreenInput* screenInput = [[AVCaptureScreenInput alloc] initWithDisplayID:displayId];
-    //self.captureScreenInput = screenInput;
-    //if ( [self.captureSession canAddInput:self.captureScreenInput] )
-    //{
-    //    [self.captureSession addInput:self.captureScreenInput];
-    //}
-
-    // 2
-    //AVCaptureScreenInput* defaultScreenInput = [[AVCaptureScreenInput alloc] initWithDisplayID:CGMainDisplayID()];
-    //self.captureScreenInput = defaultScreenInput;
-    
     self.captureScreenInput = [[AVCaptureScreenInput alloc] initWithDisplayID:selectedDisplay];
     
     if ([self.captureSession canAddInput:self.captureScreenInput])
@@ -238,37 +220,17 @@ NSString *const MoviePath = @"Movies/QuickCast";
         return NO;
     }
     
-    //use the first device we come to in the list
-    /*for (AVCaptureDevice *aud in [Utilities getAudioInputs]){
-        
-        NSError *error;
-        
-        self.captureAudioInput = [AVCaptureDeviceInput deviceInputWithDevice:aud error:&error];
-        
-        if ([self.captureSession canAddInput:self.captureAudioInput])
-        {
-            [self.captureSession addInput:self.captureAudioInput];
-        }
-        else
-        {
-            return NO;
-        }
-        
-        //use first
-        break;
-    }*/
-    
     // use the default audio
     NSError *error = nil;
     
     AVCaptureDevice *audioDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
-    AVCaptureDeviceInput *captureAudioInput = [AVCaptureDeviceInput deviceInputWithDevice:audioDevice error:&error];
+    self.captureAudioInput = [AVCaptureDeviceInput deviceInputWithDevice:audioDevice error:&error];
     
     if(error){
         NSLog(@"Error Start capture Audio=%@", error);
     }else{
-        if ([self.captureSession canAddInput:captureAudioInput]){
-            [self.captureSession addInput:captureAudioInput];
+        if ([self.captureSession canAddInput:self.captureAudioInput]){
+            [self.captureSession addInput:self.captureAudioInput];
         }
     }
     
@@ -278,6 +240,18 @@ NSString *const MoviePath = @"Movies/QuickCast";
     if ([self.captureSession canAddOutput:captureMovieFileOutput])
     {
         [self.captureSession addOutput:captureMovieFileOutput];
+    }
+    else
+    {
+        return NO;
+    }
+    
+    /* for metering */
+    self.audioDataOutput = [[AVCaptureAudioDataOutput alloc] init];
+    //[captureMovieFileOutput setDelegate:self];
+    if ([self.captureSession canAddOutput:self.audioDataOutput ])
+    {
+        [self.captureSession addOutput:self.audioDataOutput];
     }
     else
     {
@@ -371,22 +345,12 @@ NSString *const MoviePath = @"Movies/QuickCast";
 		return;
     }
     
-    [decisionWindowController completedProcessing:NO];
+    
     //[self resizeVideo:[NSHomeDirectory() stringByAppendingPathComponent:MoviePath]];
     
-    NSString *input = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"];
-    NSString *output = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast-compressed.mov"];
-    // Delete any existing movie file first
-    if ([[NSFileManager defaultManager] fileExistsAtPath:output]){
-        
-        if (![[NSFileManager defaultManager] removeItemAtPath:output error:&error]){
-            NSLog(@"Error deleting compressed movie %@",[error localizedDescription]);
-        }
-    }
-    FFMPEGEngine *engine = [[FFMPEGEngine alloc] init];
-    NSString *err = [engine resizeVideo:input output:output width:movieSize.width height:movieSize.height];
-    
     [self.captureSession stopRunning];
+    if(_previewPanel)
+        [_previewPanel orderOut:nil];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         // prepare thumb for finish window
@@ -406,9 +370,14 @@ NSString *const MoviePath = @"Movies/QuickCast";
         [decisionWindowController.window setLevel: NSNormalWindowLevel];
         [decisionWindowController.window makeKeyAndOrderFront:nil];
         
+        //perform in the background
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [decisionWindowController compress];
+        });
+        
         // Ensure is at the front
         [NSApp activateIgnoringOtherApps:YES];    
-        [_previewPanel orderOut:nil];
+        
             
         
         NSImage *thumb = [Utilities thumbnailImageForVideo:[NSURL fileURLWithPath:quickcast] atTime:(NSTimeInterval)0.5];
@@ -506,6 +475,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     
         if(decisionWindowController)
            [decisionWindowController.window orderOut:nil];
+        
         
         // Finish Window Controller was instantiated when DecisionWindow was so is ready to go
         [finishWindowController.window setLevel: NSNormalWindowLevel];
@@ -887,7 +857,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
             if(finishWindowController)
                 [decisionWindowController.window orderOut:nil];
             
-            //BOOL success = [self createCaptureSession];
+            BOOL success = [self createCaptureSession];
             
             latestUrl = nil;
             //[self addCaptureVideoPreview];
@@ -933,7 +903,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    NSString *quickcastPath = [prefs objectForKey:@"quickcastSavePath"];
+    NSString *quickcastPath = [prefs objectForKey:@"quickcastNewSavePath"];
     
     if(quickcastPath.length > 0){
         
@@ -971,9 +941,6 @@ NSString *const MoviePath = @"Movies/QuickCast";
     // Ensure captureSession is stopped
     if(self.captureSession.isRunning)
         [self.captureSession stopRunning];
-    
-    if (audioLevelTimer)
-		[audioLevelTimer invalidate];
     
     [[NSApplication sharedApplication] terminate:nil];
 }
@@ -1078,41 +1045,6 @@ NSString *const MoviePath = @"Movies/QuickCast";
         }
     }
 }
-
-#pragma mark UI updating
-
-- (void)updateAudioLevels:(NSTimer *)timer
-{
-	// Get the mean audio level from the movie file output's audio connections
-	
-	float totalDecibels = 0.0;
-	
-	QTCaptureConnection *qtconnection = nil;
-	NSUInteger i = 0;
-	NSUInteger numberOfPowerLevels = 0;	// Keep track of the total number of power levels in order to take the mean
-	
-	for (i = 0; i < [[captureMovieFileOutput connections] count]; i++) {
-		qtconnection = [[captureMovieFileOutput connections] objectAtIndex:i];
-		
-		//if ([[connection mediaType] isEqualToString:QTMediaTypeSound]) {
-			NSArray *powerLevels = [qtconnection attributeForKey:QTCaptureConnectionAudioAveragePowerLevelsAttribute];
-			NSUInteger j, powerLevelCount = [powerLevels count];
-			
-			for (j = 0; j < powerLevelCount; j++) {
-				NSNumber *decibels = [powerLevels objectAtIndex:j];
-				totalDecibels += [decibels floatValue];
-				numberOfPowerLevels++;
-			}
-		//}
-	}
-	
-	if (numberOfPowerLevels > 0) {
-		[audioLevelMeter setFloatValue:(pow(10., 0.05 * (totalDecibels / (float)numberOfPowerLevels)) * 20.0)];
-	} else {
-		[audioLevelMeter setFloatValue:0];
-	}
-}
-
 
 #pragma mark Capture Camera
 

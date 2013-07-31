@@ -33,6 +33,9 @@
     return self;
 }
 
+//if (audioLevelTimer)
+//[audioLevelTimer invalidate];
+
 - (void)windowDidLoad
 {
     [super windowDidLoad];
@@ -40,8 +43,12 @@
     [self listDisplays];
     [self listAudioInputs];
     
+    //select the default audio input
+    [_availableAudioDevices selectItemWithTitle:[Utilities defaultAudioInputName]];
+    [_availableScreens selectItemWithTitle:[Utilities getMainDisplayDetails].screenName];
+    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSString *quickcastPath = [prefs objectForKey:@"quickcastSavePath"];
+    NSString *quickcastPath = [prefs objectForKey:@"quickcastNewSavePath"];
     
     if(quickcastPath.length > 0)
     {
@@ -49,7 +56,7 @@
     }
     else
     {
-        [_pathControl setURL: [NSURL fileURLWithPath: [@"~/Movies/QuickCasts" stringByExpandingTildeInPath] ]];
+        [_pathControl setURL: [NSURL fileURLWithPath: [NSHomeDirectory() stringByAppendingPathComponent:MoviePath] ]];
     }
     
     // Registers the esc key to cancel screen selection
@@ -74,6 +81,37 @@
     };
     
     eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:handler];
+    
+    // setup audio level timer
+    audioLevelTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateAudioLevels:) userInfo:nil repeats:YES];
+}
+
+#pragma mark UI updating
+
+- (void)updateAudioLevels:(NSTimer *)timer
+{
+	NSInteger channelCount = 0;
+    float decibels = 0.f;
+    
+    AppDelegate *app = (AppDelegate *)[NSApp delegate];
+    
+    NSArray *connections = app.audioDataOutput.connections;
+    if ([connections count] > 0) {
+        // There should be only one connection to an AVCaptureAudioDataOutput.
+        AVCaptureConnection *connection = [connections objectAtIndex:0];
+        
+        NSArray *audioChannels = connection.audioChannels;
+        
+        for (AVCaptureAudioChannel *channel in audioChannels) {
+            decibels = channel.averagePowerLevel;
+            //float peak = channel.peakHoldLevel;
+            // Update the level meter user interface.
+            
+        }
+    }
+    [[self audioLevelIndicator] setFloatValue:(pow(10.f, 0.05f * decibels) * 20.0f)];
+    
+	
 }
 
 - (void)listDisplays
@@ -154,7 +192,7 @@
     
     NSURL *pathURL = [_pathControl URL];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:pathURL.path forKey:@"quickcastSavePath"];
+    [prefs setObject:pathURL.path forKey:@"quickcastNewSavePath"];
     [prefs synchronize];
 }
 

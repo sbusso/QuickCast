@@ -8,6 +8,7 @@
 
 #import "DecisionWindowController.h"
 #import "AppDelegate.h"
+#import "FFMPEGEngine.h"
 
 @interface DecisionWindowController ()
 
@@ -31,10 +32,30 @@
     [_publishButton setEnabled:NO];
     [_progress startAnimation:self];
     
+    
+}
+
+- (void)compress{
+    
+    [self completedProcessing:NO];
+    NSString *input = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"];
+    NSString *output = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast-compressed.mp4"];
+    NSError *error;
+    // Delete any existing movie file first
+    if ([[NSFileManager defaultManager] fileExistsAtPath:output]){
+        
+        if (![[NSFileManager defaultManager] removeItemAtPath:output error:&error]){
+            NSLog(@"Error deleting compressed movie %@",[error localizedDescription]);
+        }
+    }
+    
+    FFMPEGEngine *engine = [[FFMPEGEngine alloc] init];
+    NSString *err = [engine resizeVideo:input output:output width:0 height:0];
+    [self completedProcessing:YES];
 }
 
 - (IBAction)previewButtonClick:(id)sender {
-    NSString *quickcast = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast-compressed.mov"];
+    NSString *quickcast = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast-compressed.mp4"];
     [[NSWorkspace sharedWorkspace] openFile:quickcast];
 }
 

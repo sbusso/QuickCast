@@ -17,5 +17,6 @@
 + (ScreenDetails *)getDisplayByName:(NSString *)name;
 + (NSMutableArray *)getDisplays;
 + (NSArray *)getAudioInputs;
++ (NSString *)defaultAudioInputName;
 
 @end
