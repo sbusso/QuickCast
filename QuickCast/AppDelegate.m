@@ -206,6 +206,9 @@ NSString *const MoviePath = @"Movies/QuickCast";
 		[self.captureSession setSessionPreset:AVCaptureSessionPresetHigh];
         
     }
+    else{
+        return NO;
+    }
     
     ScreenDetails *main = [Utilities getMainDisplayDetails];
     selectedDisplay = main.screenId;
@@ -234,6 +237,9 @@ NSString *const MoviePath = @"Movies/QuickCast";
     }else{
         if ([self.captureSession canAddInput:self.captureAudioInput]){
             [self.captureSession addInput:self.captureAudioInput];
+        }
+        else {
+            return NO;
         }
     }
     
@@ -333,6 +339,15 @@ NSString *const MoviePath = @"Movies/QuickCast";
     
 }
 
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput willFinishRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections dueToError:(NSError *)error
+{
+	if(error){
+        NSLog(@"Error: %@",error.description);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self failed:error.description];
+        });
+    }
+}
 
 /* Informs the delegate when all pending data has been written to the output file. */
 - (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error{
@@ -340,10 +355,14 @@ NSString *const MoviePath = @"Movies/QuickCast";
     if (error)
     {
         NSLog(@"Error: %@",error.description);
-		[self failed:error.description];
+		dispatch_async(dispatch_get_main_queue(), ^{
+            [self failed:error.description];
+        });
     }
     else if (![[NSFileManager defaultManager] fileExistsAtPath:[[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"]]){
-        [self failed:@"Could not capture or write file"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self failed:@"Could not capture or write file"];
+        });
     
     }
     
