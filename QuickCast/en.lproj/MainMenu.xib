@@ -1324,7 +1324,7 @@
 					</object>
 					<object class="NSMenuItem" id="633363728">
 						<reference key="NSMenu" ref="670184093"/>
-						<string key="NSTitle">My QuickCasts</string>
+						<string key="NSTitle">Your Latest QuickCasts</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="35465992"/>
