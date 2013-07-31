@@ -109,9 +109,22 @@
             
         }
     }
-    [[self audioLevelIndicator] setFloatValue:(pow(10.f, 0.05f * decibels) * 20.0f)];
+    //NSLog(@"decibels is %f",decibels);
+    //NSLog(     @"power is %f",pow(10.f, 0.05f * decibels) * 20.0f  );
+    [[self audioLevelIndicator] setFloatValue:(pow(10.f, 0.05f * decibels) * 40.0f)];
     
 	
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+    
+    //kill the timer
+    [audioLevelTimer invalidate];
+    audioLevelTimer = nil;
+    
+    AppDelegate *app = (AppDelegate *)[NSApp delegate];
+    [app toggleCamera:NO];
+    
 }
 
 - (void)listDisplays

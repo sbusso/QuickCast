@@ -6,7 +6,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PrepareWindowController : NSWindowController {
+@interface PrepareWindowController : NSWindowController<NSWindowDelegate> {
     id eventMonitor;
     
     NSTimer	*audioLevelTimer;

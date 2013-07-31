@@ -1048,11 +1048,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "QuickCast/PrepareWindowController.m"
-         timestampString = "396960936.973177"
+         timestampString = "396963901.20268"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "194"
-         endingLineNumber = "194"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
          landmarkName = "-selectPath:"
          landmarkType = "5">
       </FileBreakpoint>
