@@ -24,6 +24,9 @@ extern NSString *kGlobalHotKey;
     
     NSString *countdownNumberString;
     
+    IBOutlet NSLevelIndicator	*audioLevelMeter;
+    NSTimer						*audioLevelTimer;
+    
 }
 
 #pragma mark - Hotkeys

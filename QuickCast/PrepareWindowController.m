@@ -25,6 +25,7 @@
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
+    
     if (self) {
         
     }
@@ -42,14 +43,16 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSString *quickcastPath = [prefs objectForKey:@"quickcastSavePath"];
     
-    if(quickcastPath.length > 0){
-        
-        [_pathControl setURL: [NSURL URLWithString: quickcastPath ]];
+    if(quickcastPath.length > 0)
+    {
+        [_pathControl setURL: [NSURL fileURLWithPath: quickcastPath ]];
     }
-    else{
-        [_pathControl setURL: [NSURL URLWithString: [@"~/Movies/QuickCasts" stringByExpandingTildeInPath] ]];
+    else
+    {
+        [_pathControl setURL: [NSURL fileURLWithPath: [@"~/Movies/QuickCasts" stringByExpandingTildeInPath] ]];
     }
     
+    // Registers the esc key to cancel screen selection
     NSEvent* (^handler)(NSEvent*) = ^(NSEvent *theEvent) {
         
         AppDelegate *app = (AppDelegate *)[NSApp delegate];
@@ -60,7 +63,6 @@
         }
 
         NSEvent *result = theEvent;
-        //NSLog(@"event monitor: %@", theEvent);
 
         if (_recordPartWindowButton.state == NSOnState && theEvent.keyCode == 53) {
             [app setFullScreen];

@@ -240,6 +240,7 @@
 		E4FADB11179D357400A24EBC /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FADB10179D357400A24EBC /* Carbon.framework */; };
 		E5232755179C508700167172 /* flip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5232753179C508700167172 /* flip@2x.png */; };
 		E5232756179C508700167172 /* flip.png in Resources */ = {isa = PBXBuildFile; fileRef = E5232754179C508700167172 /* flip.png */; };
+		E5E2CEFA17A8FC6A00F79641 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E2CEF917A8FC6A00F79641 /* QTKit.framework */; };
 		E5EF08C0179BB5EE005F4F4F /* quickcast.iconset in Resources */ = {isa = PBXBuildFile; fileRef = E5EF08BF179BB5EE005F4F4F /* quickcast.iconset */; };
 /* End PBXBuildFile section */
 
@@ -1898,6 +1899,7 @@
 		E50A0F6C179ADC090066E085 /* QuickCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = QuickCast.entitlements; sourceTree = "<group>"; };
 		E5232753179C508700167172 /* flip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flip@2x.png"; sourceTree = "<group>"; };
 		E5232754179C508700167172 /* flip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flip.png; sourceTree = "<group>"; };
+		E5E2CEF917A8FC6A00F79641 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		E5EF08BF179BB5EE005F4F4F /* quickcast.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = quickcast.iconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1906,6 +1908,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E2CEFA17A8FC6A00F79641 /* QTKit.framework in Frameworks */,
 				E4FADB11179D357400A24EBC /* Carbon.framework in Frameworks */,
 				E45013A21799872500D36DDF /* WebKit.framework in Frameworks */,
 				E4B5F91217969BBD003A452E /* QuartzCore.framework in Frameworks */,
@@ -1934,6 +1937,7 @@
 		E4B5F1EC1795E54F003A452E = {
 			isa = PBXGroup;
 			children = (
+				E5E2CEF917A8FC6A00F79641 /* QTKit.framework */,
 				E4E4566117A8210100999CA6 /* licences */,
 				E481DCBE17A812F60080BCF6 /* Licence */,
 				E4FADB12179D358100A24EBC /* Frameworks */,
