@@ -77,6 +77,8 @@ NSString *kGlobalHotKey = @"Global Hot Key";
     CGDirectDisplayID selectedDisplay;
     NSString *selectedDisplayName;
     
+    NSRect selectedCrop;
+    
     NSWindow *testWindow;
     NSWindow *counterDownerWindow;
     
@@ -182,6 +184,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     
     // Start the notifier, which will cause the reachability object to retain itself!
     [reach startNotifier];
+    
 }
 
 - (void)stopRecordingKeys:(id)sender {
@@ -265,27 +268,6 @@ NSString *const MoviePath = @"Movies/QuickCast";
 }
 
 /*
- AVCaptureVideoPreviewLayer is a subclass of CALayer that you use to display
- video as it is being captured by an input device.
- 
- You use this preview layer in conjunction with an AV capture session.
- */
-//-(void)addCaptureVideoPreview
-//{
-//    /* Create a video preview layer. */
-//	AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
-//    
-//    /* Configure it.*/
-//	[videoPreviewLayer setFrame:[[self.captureView layer] bounds]];
-//	[videoPreviewLayer setAutoresizingMask:kCALayerWidthSizable|kCALayerHeightSizable];
-//    
-//    /* Add the preview layer as a sublayer to the view. */
-//    [[self.captureView layer] addSublayer:videoPreviewLayer];
-//    /* Specify the background color of the layer. */
-//	[[self.captureView layer] setBackgroundColor:CGColorGetConstantColor(kCGColorBlack)];
-//}
-
-/*
  An AVCaptureScreenInput's minFrameDuration is the reciprocal of its maximum frame rate.  This property
  may be used to request a maximum frame rate at which the input produces video frames.  The requested
  rate may not be achievable due to overall bandwidth, so actual frame rates may be lower.
@@ -335,6 +317,22 @@ NSString *const MoviePath = @"Movies/QuickCast";
     [self.captureSession commitConfiguration];
 }
 
+- (void)failed:(NSString *)errorString{
+    
+    
+    NSAlert * alert = [NSAlert alertWithMessageText:@"Recording Failed"
+                                      defaultButton:@"Ok"
+                                    alternateButton:nil
+                                        otherButton:nil
+                          informativeTextWithFormat:[NSString stringWithFormat:@"A browser window will open with a link to our FAQs about a known issue. Here are some more details: %@",errorString]];
+    
+    
+    [[NSRunningApplication currentApplication] activateWithOptions:NSApplicationActivateIgnoringOtherApps];
+    [alert runModal];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://quickcast.io/faqs"]];
+    
+}
+
 
 /* Informs the delegate when all pending data has been written to the output file. */
 - (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error{
@@ -342,7 +340,11 @@ NSString *const MoviePath = @"Movies/QuickCast";
     if (error)
     {
         NSLog(@"Error: %@",error.description);
-		return;
+		[self failed:error.description];
+    }
+    else if (![[NSFileManager defaultManager] fileExistsAtPath:[[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"]]){
+        [self failed:@"Could not capture or write file"];
+    
     }
     
     
@@ -514,7 +516,8 @@ NSString *const MoviePath = @"Movies/QuickCast";
 	if ((e == kCGErrorSuccess) && (1 == matchingDisplayCount))
     {
         /* Add the display as a capture input. */
-        [self addDisplayInputToCaptureSession:displayID cropRect:NSRectToCGRect(rect)];
+        selectedCrop = rect;
+        //[self addDisplayInputToCaptureSession:displayID cropRect:NSRectToCGRect(rect)];
     }
     
     if(testWindow)
@@ -581,8 +584,8 @@ NSString *const MoviePath = @"Movies/QuickCast";
     if ([[NSCursor currentCursor] isEqual: [NSCursor crosshairCursor]]) {
         [[NSCursor currentCursor] pop];
     }
-    
-    [self addDisplayInputToCaptureSession:selectedDisplay cropRect:NSRectToCGRect(frame)];
+    selectedCrop = frame;
+    //[self addDisplayInputToCaptureSession:selectedDisplay cropRect:NSRectToCGRect(frame)];
 }
 
 - (void)captureSessionRuntimeErrorDidOccur:(NSNotification *)notification{
@@ -590,20 +593,23 @@ NSString *const MoviePath = @"Movies/QuickCast";
 	NSError *error = [[notification userInfo] objectForKey:AVCaptureSessionErrorKey];
 	if ([error localizedDescription]) {
 		if ([error localizedFailureReason]) {
-			NSRunAlertPanel(@"QuickCast Alert",
-							[NSString stringWithFormat:@"%@\n\n%@", [error localizedDescription], [error localizedFailureReason]],
-							nil, nil, nil);
+			//NSRunAlertPanel(@"QuickCast Alert",
+							//[NSString stringWithFormat:@"%@\n\n%@", [error localizedDescription], [error localizedFailureReason]],
+							//nil, nil, nil);
+            [self failed:[NSString stringWithFormat:@"%@\n\n%@", [error localizedDescription], [error localizedFailureReason]]];
 		}
 		else {
-			NSRunAlertPanel(@"QuickCast Alert",
-							[NSString stringWithFormat:@"%@", [error localizedDescription]],
-							nil, nil, nil);
+			//NSRunAlertPanel(@"QuickCast Alert",
+							//[NSString stringWithFormat:@"%@", [error localizedDescription]],
+							//nil, nil, nil);
+            [self failed:[NSString stringWithFormat:@"%@\n\n", [error localizedDescription]]];
 		}
 	}
 	else {
-		NSRunAlertPanel(@"QuickCast Alert",
-						@"An unknown error occured",
-				 		nil, nil, nil);
+		//NSRunAlertPanel(@"QuickCast Alert",
+						//@"An unknown error occured",
+				 		//nil, nil, nil);
+        [self failed:@"An unknown capture error occured"];
 	}
 }
 
@@ -620,7 +626,8 @@ NSString *const MoviePath = @"Movies/QuickCast";
 	
     // last minute set it
     ScreenDetails *sd = [Utilities getDisplayByName:selectedDisplayName];
-    [self addDisplayInputToCaptureSession:sd.screenId cropRect:self.captureScreenInput.cropRect];
+    [self addDisplayInputToCaptureSession:sd.screenId cropRect:NSRectToCGRect(selectedCrop)];
+    
     /* Starts recording to a given URL. */
     [captureMovieFileOutput startRecordingToOutputFileURL:[NSURL fileURLWithPath:quickcast] recordingDelegate:self];
     [_recordItem setTitle:@"Stop"];
@@ -859,6 +866,9 @@ NSString *const MoviePath = @"Movies/QuickCast";
             
             BOOL success = [self createCaptureSession];
             
+            if(!success)
+                [self failed:@"Could not create capture session"];
+            
             latestUrl = nil;
             //[self addCaptureVideoPreview];
             
@@ -969,7 +979,8 @@ NSString *const MoviePath = @"Movies/QuickCast";
     
     [self setupCountdownWindow:sd.screen];
     
-    [self addDisplayInputToCaptureSession:selectedDisplay cropRect:NSRectToCGRect(NSZeroRect)];
+    selectedCrop = NSZeroRect;
+    //[self addDisplayInputToCaptureSession:selectedDisplay cropRect:NSRectToCGRect(NSZeroRect)];
 
 }
 
