@@ -1447,9 +1447,9 @@ NSString *const MoviePath = @"Movies/QuickCast";
 	int bitsPerSecond;
 	
 	// Assume that lower-than-SD resolutions are intended for streaming, and use a lower bitrate
-	if ( numPixels < (640 * 480) )
-		bitsPerPixel = 4.05; // This bitrate matches the quality produced by AVCaptureSessionPresetMedium or Low.
-	else
+	//if ( numPixels < (640 * 480) )
+		//bitsPerPixel = 4.05; // This bitrate matches the quality produced by AVCaptureSessionPresetMedium or Low.
+	//else
 		bitsPerPixel = 11.4; // This bitrate matches the quality produced by AVCaptureSessionPresetHigh.
 	
 	bitsPerSecond = numPixels * bitsPerPixel;
@@ -1460,7 +1460,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
 											  [NSNumber numberWithInteger:dimensions.height], AVVideoHeightKey,
 											  [NSDictionary dictionaryWithObjectsAndKeys:
 											   [NSNumber numberWithInteger:bitsPerSecond], AVVideoAverageBitRateKey,
-											   [NSNumber numberWithInteger:30], AVVideoMaxKeyFrameIntervalKey,
+											   [NSNumber numberWithInteger:15], AVVideoMaxKeyFrameIntervalKey,
 											   nil], AVVideoCompressionPropertiesKey,
 											  nil];
 	if ([assetWriter canApplyOutputSettings:videoCompressionSettings forMediaType:AVMediaTypeVideo]) {
