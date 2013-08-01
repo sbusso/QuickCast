@@ -273,6 +273,20 @@
 								</description>
 
 		         </item>
+		         <item>
+		            <title>Version 0.70 beta</title>
+								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+
+		            <pubDate>Thu, 01 Aug 2013 11:40:11 +0000</pubDate>
+		            <enclosure url="https://github.com/petetak/QuickCast/releases/download/0.70/QuickCast.zip" sparkle:version="0.70" length="8884366" type="application/octet-stream" />
+								<description><![CDATA[
+										<h2>QuickCast</h2> 
+										<p>Public Beta release</p>
+										<p>Rewritten to use AVVideoDataCaptureOutput</p>
+									]]>
+								</description>
+
+		         </item>
 		         
 		         
 
