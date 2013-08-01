@@ -9,12 +9,13 @@
 #import "DrawMouseBoxView.h"
 #import <SGHotKey.h>
 #import <Growl/Growl.h>
+#import <CoreMedia/CMBufferQueue.h>
 
 extern NSString *kGlobalHotKey;
 
-@class AVCaptureSession, AVCaptureScreenInput, AVCaptureMovieFileOutput, AVCaptureDeviceInput;
+@class AVCaptureSession, AVCaptureScreenInput, AVCaptureDeviceInput, AVAssetWriter, AVAssetWriterInput;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate,AVCaptureFileOutputDelegate,AVCaptureFileOutputRecordingDelegate,DrawMouseBoxViewDelegate,GrowlApplicationBridgeDelegate>{
+@interface AppDelegate : NSObject <NSApplicationDelegate,DrawMouseBoxViewDelegate,GrowlApplicationBridgeDelegate,AVCaptureAudioDataOutputSampleBufferDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>{
     
     BOOL loggedIn;
     NSStatusItem *statusItem;
@@ -24,7 +25,39 @@ extern NSString *kGlobalHotKey;
     
     NSString *countdownNumberString;
     AVCaptureAudioDataOutput *audioDataOutput;
+    
+    // AVVideoDataOutput
+    NSMutableArray *previousSecondTimestamps;
+	Float64 videoFrameRate;
+	CMVideoDimensions videoDimensions;
+	CMVideoCodecType videoType;
+    
+	//AVCaptureSession *captureSession;
+	AVCaptureConnection *audioConnection;
+	AVCaptureConnection *videoConnection;
+	CMBufferQueueRef previewBufferQueue;
+	
+	AVAssetWriter *assetWriter;
+	AVAssetWriterInput *assetWriterAudioIn;
+	AVAssetWriterInput *assetWriterVideoIn;
+	dispatch_queue_t movieWritingQueue;
+    
+	// Only accessed on movie writing queue
+    BOOL readyToRecordAudio;
+    BOOL readyToRecordVideo;
+	BOOL recordingWillBeStarted;
+	BOOL recordingWillBeStopped;
+    
+	BOOL recording;
+
+    
+    
+    
 }
+
+#pragma mark - AVVideoDataOutput
+
+@property (readonly) Float64 videoFrameRate;
 
 #pragma mark - Hotkeys
 @property (nonatomic, retain) SGHotKey *hotKey;

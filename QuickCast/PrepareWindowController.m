@@ -111,7 +111,7 @@
     }
     //NSLog(@"decibels is %f",decibels);
     //NSLog(     @"power is %f",pow(10.f, 0.05f * decibels) * 20.0f  );
-    [[self audioLevelIndicator] setFloatValue:(pow(10.f, 0.05f * decibels) * 40.0f)];
+    [[self audioLevelIndicator] setFloatValue:(pow(10.f, 0.05f * decibels) * 20.0f)];
     
 	
 }

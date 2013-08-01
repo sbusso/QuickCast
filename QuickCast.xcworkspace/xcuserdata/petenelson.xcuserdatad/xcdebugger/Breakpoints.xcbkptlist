@@ -26,7 +26,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "899"
          endingLineNumber = "899"
+<<<<<<< HEAD
          landmarkName = "-previewCloseClick:"
+=======
+         landmarkName = "-quitClick:"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -39,8 +43,13 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "447"
          endingLineNumber = "447"
+<<<<<<< HEAD
          landmarkName = "-captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:"
          landmarkType = "5">
+=======
+         landmarkName = "@implementation AppDelegate"
+         landmarkType = "3">
+>>>>>>> AVCaptureVideoDataOutput
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -52,7 +61,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "688"
          endingLineNumber = "688"
+<<<<<<< HEAD
          landmarkName = "-startRecording:"
+=======
+         landmarkName = "-checkToken"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -65,7 +78,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "912"
          endingLineNumber = "912"
+<<<<<<< HEAD
          landmarkName = "-recordClick:"
+=======
+         landmarkName = "-updateSelectedDisplay:"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -104,7 +121,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "281"
          endingLineNumber = "281"
+<<<<<<< HEAD
          landmarkName = "-createCaptureSession"
+=======
+         landmarkName = "-addDisplayInputToCaptureSession:cropRect:"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -143,7 +164,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "621"
          endingLineNumber = "621"
+<<<<<<< HEAD
          landmarkName = "-setDisplayAndCropRect"
+=======
+         landmarkName = "-checkToken"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -156,7 +181,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "634"
          endingLineNumber = "634"
+<<<<<<< HEAD
          landmarkName = "-setFullScreen"
+=======
+         landmarkName = "-checkToken"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -169,7 +198,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "657"
          endingLineNumber = "657"
+<<<<<<< HEAD
          landmarkName = "-captureSessionRuntimeErrorDidOccur:"
+=======
+         landmarkName = "-checkToken"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -182,7 +215,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "612"
          endingLineNumber = "612"
+<<<<<<< HEAD
          landmarkName = "-setDisplayAndCropRect"
+=======
+         landmarkName = "-finishRecord"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -195,7 +232,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "665"
          endingLineNumber = "665"
+<<<<<<< HEAD
          landmarkName = "-captureSessionRuntimeErrorDidOccur:"
+=======
+         landmarkName = "-checkToken"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -234,7 +275,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "638"
          endingLineNumber = "638"
+<<<<<<< HEAD
          landmarkName = "-setFullScreen"
+=======
+         landmarkName = "-checkToken"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -247,7 +292,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1222"
          endingLineNumber = "1222"
+<<<<<<< HEAD
          landmarkName = "-setupVideoPreview"
+=======
+         landmarkName = "-completeLogIn:"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -260,7 +309,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1310"
          endingLineNumber = "1310"
+<<<<<<< HEAD
          landmarkName = "-goToSignIn:"
+=======
+         landmarkName = "-markUploadCompleted"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -273,8 +326,13 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1311"
          endingLineNumber = "1311"
+<<<<<<< HEAD
          landmarkName = "@implementation AppDelegate"
          landmarkType = "3">
+=======
+         landmarkName = "-markUploadCompleted"
+         landmarkType = "5">
+>>>>>>> AVCaptureVideoDataOutput
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -286,7 +344,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1307"
          endingLineNumber = "1307"
+<<<<<<< HEAD
          landmarkName = "-goToSignIn:"
+=======
+         landmarkName = "-markUploadCompleted"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -299,7 +361,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "503"
          endingLineNumber = "503"
+<<<<<<< HEAD
          landmarkName = "-toggleCamera:"
+=======
+         landmarkName = "-setDisplayAndCropRect"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -312,7 +378,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "495"
          endingLineNumber = "495"
+<<<<<<< HEAD
          landmarkName = "-updateSelectedAudioDevice:"
+=======
+         landmarkName = "-setDisplayAndCropRect"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -321,12 +391,19 @@
          continueAfterRunningActions = "No"
          filePath = "QuickCast/AppDelegate.m"
          timestampString = "397062398.74339"
+<<<<<<< HEAD
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "906"
          endingLineNumber = "906"
          landmarkName = "-previewCloseClick:"
-         landmarkType = "5">
+=======
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "906"
+         endingLineNumber = "906"
+         landmarkName = "@implementation AppDelegate"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -338,7 +415,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "695"
          endingLineNumber = "695"
-         landmarkName = "-finishRecord"
+         landmarkName = "-setupFolder"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -349,9 +427,34 @@
          timestampString = "397061615.109405"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
+         startingLineNumber = "695"
+         endingLineNumber = "695"
+         landmarkName = "-finishRecord"
+=======
+         startingLineNumber = "723"
+         endingLineNumber = "723"
+         landmarkName = "-getCasts"
+>>>>>>> AVCaptureVideoDataOutput
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397061615.109405"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
          startingLineNumber = "723"
          endingLineNumber = "723"
          landmarkName = "-checkToken"
+=======
+         startingLineNumber = "735"
+         endingLineNumber = "735"
+         landmarkName = "-getCasts"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -362,15 +465,22 @@
          timestampString = "397061615.109405"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
          startingLineNumber = "735"
          endingLineNumber = "735"
          landmarkName = "-checkToken"
+=======
+         startingLineNumber = "736"
+         endingLineNumber = "736"
+         landmarkName = "-getCasts"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
+<<<<<<< HEAD
          filePath = "QuickCast/AppDelegate.m"
          timestampString = "397061615.109405"
          startingColumnNumber = "9223372036854775807"
@@ -384,6 +494,8 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
+=======
+>>>>>>> AVCaptureVideoDataOutput
          filePath = "QuickCast/FinishWindowController.m"
          timestampString = "396893187.107453"
          startingColumnNumber = "9223372036854775807"
@@ -494,7 +606,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "619"
          endingLineNumber = "619"
+<<<<<<< HEAD
          landmarkName = "-setDisplayAndCropRect"
+=======
+         landmarkName = "-checkToken"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -507,7 +623,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "644"
          endingLineNumber = "644"
+<<<<<<< HEAD
          landmarkName = "-captureSessionRuntimeErrorDidOccur:"
+=======
+         landmarkName = "-checkToken"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -520,7 +640,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "640"
          endingLineNumber = "640"
+<<<<<<< HEAD
          landmarkName = "-setFullScreen"
+=======
+         landmarkName = "-checkToken"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -533,7 +657,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "873"
          endingLineNumber = "873"
+<<<<<<< HEAD
          landmarkName = "-getCasts"
+=======
+         landmarkName = "-signInClick:"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -559,8 +687,13 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1043"
          endingLineNumber = "1043"
+<<<<<<< HEAD
          landmarkName = "@implementation AppDelegate"
          landmarkType = "3">
+=======
+         landmarkName = "-setupVideoPreview"
+         landmarkType = "5">
+>>>>>>> AVCaptureVideoDataOutput
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -702,8 +835,13 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "581"
          endingLineNumber = "581"
+<<<<<<< HEAD
          landmarkName = "-drawMouseBoxView:didSelectRect:"
          landmarkType = "5">
+=======
+         landmarkName = "@implementation AppDelegate"
+         landmarkType = "3">
+>>>>>>> AVCaptureVideoDataOutput
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -754,7 +892,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "724"
          endingLineNumber = "724"
+<<<<<<< HEAD
          landmarkName = "-checkToken"
+=======
+         landmarkName = "-getCasts"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -780,7 +922,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "953"
          endingLineNumber = "953"
+<<<<<<< HEAD
          landmarkName = "-recordClick:"
+=======
+         landmarkName = "-startCountdown"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -819,7 +965,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "298"
          endingLineNumber = "298"
+<<<<<<< HEAD
          landmarkName = "-createCaptureSession"
+=======
+         landmarkName = "-addDisplayInputToCaptureSession:cropRect:"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -832,7 +982,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "301"
          endingLineNumber = "301"
+<<<<<<< HEAD
          landmarkName = "-createCaptureSession"
+=======
+         landmarkName = "-addDisplayInputToCaptureSession:cropRect:"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -897,7 +1051,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "240"
          endingLineNumber = "240"
+<<<<<<< HEAD
          landmarkName = "-createCaptureSession"
+=======
+         landmarkName = "-createPreviewCaptureSession"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -988,7 +1146,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1212"
          endingLineNumber = "1212"
+<<<<<<< HEAD
          landmarkName = "-setupVideoPreview"
+=======
+         landmarkName = "-goToSignUp:"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1062,6 +1224,7 @@
          continueAfterRunningActions = "No"
          filePath = "QuickCast/AppDelegate.m"
          timestampString = "397062398.74339"
+<<<<<<< HEAD
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1509"
@@ -1300,6 +1463,260 @@
          startingLineNumber = "1489"
          endingLineNumber = "1489"
          landmarkName = "-resizeVideo:"
+=======
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1509"
+         endingLineNumber = "1509"
+         landmarkName = "-startRecording"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1670"
+         endingLineNumber = "1670"
+         landmarkName = "-captureOutput:didOutputSampleBuffer:fromConnection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1685"
+         endingLineNumber = "1685"
+         landmarkName = "-captureOutput:didOutputSampleBuffer:fromConnection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1700"
+         endingLineNumber = "1700"
+         landmarkName = "-captureOutput:didOutputSampleBuffer:fromConnection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1389"
+         endingLineNumber = "1389"
+         landmarkName = "-writeSampleBuffer:ofType:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1396"
+         endingLineNumber = "1396"
+         landmarkName = "-writeSampleBuffer:ofType:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1380"
+         endingLineNumber = "1380"
+         landmarkName = "-writeSampleBuffer:ofType:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397061615.109405"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "385"
+         endingLineNumber = "385"
+         landmarkName = "-updateSelectedAudioDevice:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397061615.109405"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "383"
+         endingLineNumber = "383"
+         landmarkName = "-updateSelectedAudioDevice:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1742"
+         endingLineNumber = "1742"
+         landmarkName = "-setupCaptureSession"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1765"
+         endingLineNumber = "1765"
+         landmarkName = "-setupCaptureSession"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1408"
+         endingLineNumber = "1408"
+         landmarkName = "-setupAssetWriterAudioInput:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1409"
+         endingLineNumber = "1409"
+         landmarkName = "-setupAssetWriterAudioInput:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1905"
+         endingLineNumber = "1905"
+         landmarkName = "-captureSessionStoppedRunningNotification:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1526"
+         endingLineNumber = "1526"
+         landmarkName = "-stopRecording"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1542"
+         endingLineNumber = "1542"
+         landmarkName = "-stopRecording"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1879"
+         endingLineNumber = "1879"
+         landmarkName = "-setupAndStartCaptureSession"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1425"
+         endingLineNumber = "1425"
+         landmarkName = "-setupAssetWriterAudioInput:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1487"
+         endingLineNumber = "1487"
+         landmarkName = "-startRecording"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QuickCast/AppDelegate.m"
+         timestampString = "397062398.74339"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1489"
+         endingLineNumber = "1489"
+         landmarkName = "-startRecording"
+>>>>>>> AVCaptureVideoDataOutput
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
