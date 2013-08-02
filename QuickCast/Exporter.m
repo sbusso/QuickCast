@@ -91,10 +91,10 @@
         //CMTime totalTime = CMTimeMakeWithSeconds(CMTimeGetSeconds(videoAsset.duration), videoAsset.duration.timescale);
         NSString *length = [NSString stringWithFormat:@"%f",CMTimeGetSeconds(videoAsset.duration)];
         
-        if(CMTimeGetSeconds(videoAsset.duration) < 10.0 && (width.intValue < 300 || height.intValue < 300))
-        //perform in the background
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        if(CMTimeGetSeconds(videoAsset.duration) < 10.0 && (width.intValue < 300 || height.intValue < 300)){
+        
             NSString *input = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"];
+            NSString *tempOutput = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"quickcast.%@", @"gif"]];
             NSString *output = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"quickcast-%@.%@", timeString, @"gif"]];
             NSError *error;
             // Delete any existing movie file first
@@ -104,11 +104,28 @@
                     NSLog(@"Error deleting compressed gif %@",[error localizedDescription]);
                 }
             }
+            if ([[NSFileManager defaultManager] fileExistsAtPath:tempOutput]){
+                
+                if (![[NSFileManager defaultManager] removeItemAtPath:tempOutput error:&error]){
+                    NSLog(@"Error deleting compressed gif %@",[error localizedDescription]);
+                }
+            }
             
             FFMPEGEngine *engine = [[FFMPEGEngine alloc] init];
-            [engine process:input output:output];
+            [engine process:input output:tempOutput];
             
-        });
+            //then to looping gif
+            [engine process:tempOutput output:output];
+            
+            //remove temp gif
+            if ([[NSFileManager defaultManager] fileExistsAtPath:tempOutput]){
+                
+                if (![[NSFileManager defaultManager] removeItemAtPath:tempOutput error:&error]){
+                    NSLog(@"Error deleting compressed gif %@",[error localizedDescription]);
+                }
+            }
+            
+        }
         
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
         NSString *quickcastPath = [prefs objectForKey:@"quickcastNewSavePath"];

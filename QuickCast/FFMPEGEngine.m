@@ -18,7 +18,14 @@
         
     NSMutableArray *arguments = [NSMutableArray array];
     
-    if([outputPath.pathExtension isEqualToString:@"gif"]){
+    if([inputPath.pathExtension isEqualToString:@"gif"]){
+        // ffmpeg  -i quickcast.gif -loop 0 quickcast.gif
+        [arguments addObject:@"-i"];
+        [arguments addObject:inputPath];
+        [arguments addObject:@"-loop"];
+        [arguments addObject:@"0"];
+    }
+    else if([outputPath.pathExtension isEqualToString:@"gif"]){
         // ./ffmpeg -i quickcast.mov -t 10 quickcast.gif
         [arguments addObject:@"-i"];
         [arguments addObject:inputPath];
