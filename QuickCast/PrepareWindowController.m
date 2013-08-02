@@ -124,7 +124,6 @@
     
     AppDelegate *app = (AppDelegate *)[NSApp delegate];
     [app toggleCamera:NO];
-    [app setFullScreen];
     
 }
 

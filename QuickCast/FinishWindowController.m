@@ -46,7 +46,6 @@
 - (BOOL)isReadyForUpload{
     
     return _name.stringValue.length > 0
-        && _multiline.string.length > 0
     && _agreeButton.state == NSOnState;
 
 }

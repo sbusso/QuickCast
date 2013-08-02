@@ -410,7 +410,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
                 
                 session = [[AVCaptureSession alloc] init];
                 // Set the session preset
-                [session setSessionPreset:AVCaptureSessionPreset320x240];
+                [session setSessionPreset:AVCaptureSessionPreset640x480];
                 
                 [self setupVideoPreview];
                 
@@ -454,7 +454,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     
 	/* Map point into global coordinates. */
     NSRect globalRect = rect;
-    movieSize = rect.size;
+    
     NSRect windowRect = [[view window] frame];
     globalRect = NSOffsetRect(globalRect, windowRect.origin.x, windowRect.origin.y);
 	globalRect.origin.y = CGDisplayPixelsHigh(CGMainDisplayID()) - globalRect.origin.y;
@@ -521,7 +521,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     
     ScreenDetails *screenDetails = [Utilities getDisplayByName:prepareWindowController.availableScreens.selectedItem.title];
     NSRect frame = [screenDetails.screen frame];
-    movieSize = screenDetails.screen.frame.size;
+    
     selectedDisplay = screenDetails.screenId;
     selectedDisplayName = screenDetails.screenName;
     if(transparentWindow)
@@ -534,6 +534,9 @@ NSString *const MoviePath = @"Movies/QuickCast";
         [[NSCursor currentCursor] pop];
     }
     selectedCrop = frame;
+    
+    if(transparentWindow)
+        transparentWindow = nil;
     //[self addDisplayInputToCaptureSession:selectedDisplay cropRect:NSRectToCGRect(frame)];
 }
 
@@ -820,22 +823,15 @@ NSString *const MoviePath = @"Movies/QuickCast";
             if(finishWindowController)
                 [decisionWindowController.window orderOut:nil];
             
-            //BOOL success = [self createCaptureSession];
             
-            //if(!success)
-                //[self failed:@"Could not create capture session"];
-            
-            // Setup and start the capture session
-            //[self setupAndStartCaptureSession];
-            
+            [self setFullScreen];
+                        
             // This is a temp session setup for the audio meter
             [self createPreviewCaptureSession];
             [self.captureSession startRunning];
             
             latestUrl = nil;
-            //[self addCaptureVideoPreview];
-            
-            
+           
             prepareWindowController = [[PrepareWindowController alloc] initWithWindowNibName:@"PrepareWindowController"];
             [prepareWindowController.window setLevel: NSScreenSaverWindowLevel + 2];
             [prepareWindowController.window makeKeyAndOrderFront:nil];
@@ -918,7 +914,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     ScreenDetails *sd = [Utilities getDisplayByName:screenName];
     selectedDisplay = sd.screenId;
     selectedDisplayName = sd.screenName;
-    movieSize = sd.screen.frame.size;
+    
     
     [self setupCountdownWindow:sd.screen];
     
@@ -959,6 +955,9 @@ NSString *const MoviePath = @"Movies/QuickCast";
                                                     userInfo:nil
                                                      repeats:YES];
     
+    if(transparentWindow)
+        [transparentWindow makeKeyAndOrderFront:nil];
+    
     [self setupAndStartCaptureSession];
 }
 
@@ -968,7 +967,6 @@ NSString *const MoviePath = @"Movies/QuickCast";
     counter--;
     
     if(countdown){
-        
         
         [self setCountdownNumberString:[NSString stringWithFormat:@"%d",counter]];
         numberTextField.stringValue = [NSString stringWithFormat:@"%d",counter];
@@ -1742,7 +1740,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
     ScreenDetails *main = [Utilities getDisplayByName:selectedDisp];
     selectedDisplay = main.screenId;
     selectedDisplayName = main.screenName;
-    movieSize = main.screen.frame.size;
+    movieSize = selectedCrop.size;
     
     self.captureScreenInput = nil;
     self.captureScreenInput = [[AVCaptureScreenInput alloc] initWithDisplayID:selectedDisplay];

@@ -18,6 +18,8 @@
 @property (strong) IBOutlet NSProgressIndicator *progress;
 @property (strong) IBOutlet NSButton *previewButton;
 @property (strong) IBOutlet NSButton *publishButton;
+@property (strong) IBOutlet NSButton *cancelButton;
+@property (strong) IBOutlet NSButton *recordAgainButton;
 
 - (void)updateImage:image;
 - (void)completedProcessing:(BOOL)finished;

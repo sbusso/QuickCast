@@ -74,7 +74,7 @@
 - (IBAction)recordAgainButtonClick:(id)sender {
     
     AppDelegate *app = (AppDelegate *)[NSApp delegate];
-    [app recordClick:sender];
+    [app startCountdown];
     [self.window orderOut:nil];
 }
 

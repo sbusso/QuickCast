@@ -331,7 +331,7 @@
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="500970777">
-												<int key="NSCellFlags">67108864</int>
+												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">268435456</int>
 												<string key="NSContents">I own the copyright to this QuickCast and licence it under the Creative Commons Licence</string>
 												<object class="NSFont" key="NSSupport">
@@ -599,14 +599,14 @@
 							<object class="NSTextFieldCell" key="NSCell" id="547300293">
 								<int key="NSCellFlags">68157504</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">(Required. Markdown accepted)</string>
+								<string key="NSContents">(Markdown accepted)</string>
 								<reference key="NSSupport" ref="130110591"/>
 								<string key="NSCellIdentifier">_NS:1535</string>
 								<reference key="NSControlView" ref="1069725629"/>
 								<reference key="NSBackgroundColor" ref="622090510"/>
 								<object class="NSColor" key="NSTextColor">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC44NTg4MjM1Mjk0IDAuMjM1Mjk0MTE3NiAwLjMwNTg4MjM1MjkAA</bytes>
+									<bytes key="NSRGB">MC41NTI5NDExNzY1IDAuNTUyOTQxMTc2NSAwLjU1Mjk0MTE3NjUAA</bytes>
 								</object>
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
