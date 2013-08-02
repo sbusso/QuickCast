@@ -315,6 +315,7 @@
 								</description>
 
 		         </item>
+		         
 		         <item>
 		            <title>Version 0.73 beta</title>
 								<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
