@@ -14,6 +14,7 @@
 #import "TransparentWindow.h"
 #import "VideoView.h"
 #import "Utilities.h"
+#import "FFMPEGEngine.h"
 
 @implementation Exporter{
     
@@ -89,6 +90,25 @@
         videoAsset = [AVAsset assetWithURL:tempUrl];
         //CMTime totalTime = CMTimeMakeWithSeconds(CMTimeGetSeconds(videoAsset.duration), videoAsset.duration.timescale);
         NSString *length = [NSString stringWithFormat:@"%f",CMTimeGetSeconds(videoAsset.duration)];
+        
+        if(CMTimeGetSeconds(videoAsset.duration) < 10.0 && (width.intValue < 300 || height.intValue < 300))
+        //perform in the background
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSString *input = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"];
+            NSString *output = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"quickcast-%@.%@", timeString, @"gif"]];
+            NSError *error;
+            // Delete any existing movie file first
+            if ([[NSFileManager defaultManager] fileExistsAtPath:output]){
+                
+                if (![[NSFileManager defaultManager] removeItemAtPath:output error:&error]){
+                    NSLog(@"Error deleting compressed gif %@",[error localizedDescription]);
+                }
+            }
+            
+            FFMPEGEngine *engine = [[FFMPEGEngine alloc] init];
+            [engine process:input output:output];
+            
+        });
         
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
         NSString *quickcastPath = [prefs objectForKey:@"quickcastNewSavePath"];

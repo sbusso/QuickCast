@@ -8,7 +8,7 @@
 
 @implementation FFMPEGEngine
 
-- (NSString *)resizeVideo:(NSString *)inputPath output:(NSString *)outputPath width:(float)width height:(float)height{
+- (NSString *)process:(NSString *)inputPath output:(NSString *)outputPath{
     
     NSString *ffmpegPath = [[NSBundle mainBundle] pathForResource:@"ffmpeg" ofType:nil];
       
@@ -18,15 +18,24 @@
         
     NSMutableArray *arguments = [NSMutableArray array];
     
-    // running: ./ffmpeg -i quickcast.mov -c:v libx264 -preset veryfast -crf 22 output.mp4
-    [arguments addObject:@"-i"];
-    [arguments addObject:inputPath];
-    [arguments addObject:@"-c:v"];
-    [arguments addObject:@"libx264"];
-    [arguments addObject:@"-preset"];
-    [arguments addObject:@"veryfast"];
-    [arguments addObject:@"-crf"];
-    [arguments addObject:@"22"];
+    if([outputPath.pathExtension isEqualToString:@"gif"]){
+        // ./ffmpeg -i quickcast.mov -t 10 quickcast.gif
+        [arguments addObject:@"-i"];
+        [arguments addObject:inputPath];
+        [arguments addObject:@"-t"];
+        [arguments addObject:@"10"];
+    }
+    else{
+        // running: ./ffmpeg -i quickcast.mov -c:v libx264 -preset veryfast -crf 22 output.mp4
+        [arguments addObject:@"-i"];
+        [arguments addObject:inputPath];
+        [arguments addObject:@"-c:v"];
+        [arguments addObject:@"libx264"];
+        [arguments addObject:@"-preset"];
+        [arguments addObject:@"veryfast"];
+        [arguments addObject:@"-crf"];
+        [arguments addObject:@"22"];
+    }
     
     [arguments addObject:outputPath];
         

@@ -66,7 +66,7 @@ NSString *kGlobalHotKey = @"Global Hot Key";
 @implementation AppDelegate
 {
     AVCaptureMovieFileOutput    *captureMovieFileOutput;
-   
+    
     PrepareWindowController *prepareWindowController;
     TransparentWindow *transparentWindow;
     FinishWindowController *finishWindowController;
@@ -99,10 +99,14 @@ NSString *kGlobalHotKey = @"Global Hot Key";
     NSSize movieSize;
     
     BOOL mirrored;
+    BOOL previouslyHadCameraOn;
     
     NSDictionary *completePublishParams;
     BOOL metaCompleted;
     NSString *latestUrl;
+    
+    // For monitoring escape key on countdown
+    id eventMonitor;
     
 }
 
@@ -122,8 +126,6 @@ NSString *const MoviePath = @"Movies/QuickCast";
 @synthesize videoFrameRate, videoDimensions, videoType, recording;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
-    
-    [[SUUpdater sharedUpdater] checkForUpdatesInBackground];
     
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setMenu:_statusMenu];
@@ -203,6 +205,34 @@ NSString *const MoviePath = @"Movies/QuickCast";
     
     // Start the notifier, which will cause the reachability object to retain itself!
     [reach startNotifier];
+    
+    // Register so that escape will cancel countdown and take user back to the prepare
+    // Need to handle shutting down session cleanly and then redirecting to correct place
+    /*NSEvent* (^handler)(NSEvent*) = ^(NSEvent *theEvent) {
+        
+        if (!(counterDownerWindow && [counterDownerWindow isVisible])) {
+            return theEvent;
+        }
+        
+        NSEvent *result = theEvent;
+        
+        if (theEvent.keyCode == 53) {
+            [counterDownerWindow orderOut:nil];
+            [self recordClick:self];
+        }
+        
+        return result;
+    };
+    
+    eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:handler];*/
+
+    
+    // First time run show that in menu bar
+    if([prefs objectForKey:@"firstRun"] == nil){
+        [prefs setObject:@"run" forKey:@"firstRun"];
+        [prefs synchronize];
+        [self firstRun];
+    }
     
 }
 
@@ -397,21 +427,24 @@ NSString *const MoviePath = @"Movies/QuickCast";
 - (void)toggleCamera:(BOOL)on{
 
     if(!on){
+        
         if(_previewPanel){
             [_previewPanel orderOut:nil];
             [session stopRunning];
+            session = nil;
             
         }
     }
     else{
-        if(_previewPanel){
+        
+        if(!session.isRunning && _previewPanel){
             [_previewPanel makeKeyAndOrderFront:nil];
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
                 
                 session = [[AVCaptureSession alloc] init];
                 // Set the session preset
                 [session setSessionPreset:AVCaptureSessionPreset640x480];
-                
+                previouslyHadCameraOn = YES;
                 [self setupVideoPreview];
                 
             });
@@ -596,13 +629,19 @@ NSString *const MoviePath = @"Movies/QuickCast";
     
     //[captureMovieFileOutput stopRecording];
     
-    
     [_recordItem setTitle:@"Record"];
-    [session stopRunning];
+    
+    //stop capturing video
+    //if(session.isRunning)
+        //[session stopRunning];
+    
+    //if(_previewPanel)
+        //[_previewPanel orderOut:nil];
     
     if([self.captureSession isRunning]){
         [self.captureSession stopRunning];
     }
+    [self toggleCamera:NO];
     
     
     [countdownTimer invalidate];
@@ -810,10 +849,14 @@ NSString *const MoviePath = @"Movies/QuickCast";
 
 - (IBAction)recordClick:(id)sender {
    
+    
     if([((NSButton *)sender).title isEqualToString:@"Stop"]){
         [self finishRecord];
     }
     else{
+        
+        //check for updates here
+        [[SUUpdater sharedUpdater] checkForUpdatesInBackground];
         
         if(![prepareWindowController.window isVisible]){
             //ensure other windows are shut ready to record again
@@ -837,6 +880,8 @@ NSString *const MoviePath = @"Movies/QuickCast";
             [prepareWindowController.window makeKeyAndOrderFront:nil];
             ScreenDetails *screenDetails = [Utilities getDisplayByName:prepareWindowController.availableScreens.selectedItem.title];
             [self setupCountdownWindow:screenDetails.screen];
+            
+            previouslyHadCameraOn = NO;
             
         }
     }
@@ -958,6 +1003,12 @@ NSString *const MoviePath = @"Movies/QuickCast";
     if(transparentWindow)
         [transparentWindow makeKeyAndOrderFront:nil];
     
+    
+    // If the user clicked rerecord and they had the camera on then reopen the camera during countdown
+    if(previouslyHadCameraOn){
+        [self toggleCamera:YES];
+    }
+    
     [self setupAndStartCaptureSession];
 }
 
@@ -981,7 +1032,6 @@ NSString *const MoviePath = @"Movies/QuickCast";
             //get it ready for a rerecord
             //[_countdownNumber setStringValue:[NSString stringWithFormat:@"%d",5]];
             [self setCountdownNumberString:[NSString stringWithFormat:@"%d",5]];
-            
             
         }
     }
@@ -1537,8 +1587,6 @@ NSString *const MoviePath = @"Movies/QuickCast";
 			
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                if(_previewPanel)
-                    [_previewPanel orderOut:nil];
                 // prepare thumb for finish window
                 NSString *quickcast = [[NSHomeDirectory() stringByAppendingPathComponent:MoviePath] stringByAppendingPathComponent:@"quickcast.mov"];
                 
@@ -1561,6 +1609,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
                     [decisionWindowController compress];
                 });
+                
                 
                 // Ensure is at the front
                 [NSApp activateIgnoringOtherApps:YES];
@@ -1588,7 +1637,8 @@ NSString *const MoviePath = @"Movies/QuickCast";
                         
                     });
                 }
-            });
+                
+             });
 
 			//[self stopAndTearDownCaptureSession];
 		}
@@ -1638,7 +1688,7 @@ NSString *const MoviePath = @"Movies/QuickCast";
 		if ( self.videoType == 0 )
 			self.videoType = CMFormatDescriptionGetMediaSubType( formatDescription );
         
-		//CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+        //CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
 		
 		// Synchronously process the pixel buffer to de-green it.
 		//[self processPixelBuffer:pixelBuffer];
@@ -1928,6 +1978,25 @@ NSString *const MoviePath = @"Movies/QuickCast";
 - (void)showError:(NSError *)error
 {
     [self failed:error.localizedDescription];
+}
+
+#pragma mark - First run
+
+- (void)firstRun{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSAlert * alert = [NSAlert alertWithMessageText:@"Welcome to QuickCast"
+                                          defaultButton:@"OK"
+                                        alternateButton:nil
+                                            otherButton:nil
+                              informativeTextWithFormat:@"Please note that QuickCast is a status bar application. You should see the icon above in your status bar."];
+        
+        
+        [[NSRunningApplication currentApplication] activateWithOptions:NSApplicationActivateIgnoringOtherApps];
+        [alert runModal];
+    });
+    
+    
 }
 
 

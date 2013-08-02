@@ -50,7 +50,7 @@
     }
     
     FFMPEGEngine *engine = [[FFMPEGEngine alloc] init];
-    NSString *err = [engine resizeVideo:input output:output width:0 height:0];
+    NSString *err = [engine process:input output:output];
     [self completedProcessing:YES];
 }
 

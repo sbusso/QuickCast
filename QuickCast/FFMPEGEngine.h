@@ -8,6 +8,6 @@
 
 @interface FFMPEGEngine : NSObject
 
-- (NSString *)resizeVideo:(NSString *)inputPath output:(NSString *)outputPath width:(float)width height:(float)height;
+- (NSString *)process:(NSString *)inputPath output:(NSString *)outputPath;
 
 @end

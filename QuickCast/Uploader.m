@@ -181,6 +181,25 @@
     
     [s3 putObject:por];
     
+    // If we have got a gif
+    if([[NSFileManager defaultManager] fileExistsAtPath:[[videoUrl.path stringByDeletingPathExtension] stringByAppendingPathExtension:@"gif"]]){
+        
+        NSString *relativePathGif = [NSString stringWithFormat:@"%@/%@/%@",userId,castId,@"quickcast.gif"];
+        
+        S3PutObjectRequest *porGif = [[S3PutObjectRequest alloc] initWithKey:relativePathGif inBucket:bucket];
+        
+        porGif.data  = [NSData dataWithContentsOfFile:[[videoUrl.path stringByDeletingPathExtension] stringByAppendingPathExtension:@"gif"]];
+        porGif.contentType = @"image/gif";
+        
+        porGif.expires = 2147483647; //max int value
+        porGif.cannedACL = [S3CannedACL publicRead];
+        
+        //porThumb.delegate = self;
+        //just do syncronously so only video uses the async callbacks
+        [s3 putObject:porGif];
+
+    }
+    
     if(thumbnailUrl != nil){
     
         NSString *relativePathThumb = [NSString stringWithFormat:@"%@/%@/%@",userId,castId,@"quickcast.jpg"];
@@ -192,7 +211,7 @@
         
         porThumb.expires = 2147483647; //max int value
         porThumb.cannedACL = [S3CannedACL publicRead];
-        
+        porThumb.contentType = @"image/jpeg";
         //porThumb.delegate = self;
         //just do syncronously so only video uses the async callbacks
         [s3 putObject:porThumb];
